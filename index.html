@@ -73,7 +73,7 @@
     // ❗ Debug properly using the Console
 
     // 👉 CHALLENGE 1
-    function profileActivation() {
+    function profileActivation(profile, reason) {
       // 🧠 profileActivation takes two arguments, profile and reason, which are an object and a string respectively
       //  The reason arg is only used -and therefore required- to deactivate profiles, not to activate them
       //  The profile arg has an `active` property holding a Boolean value
@@ -85,10 +85,31 @@
       //    * If the profile is active but it has a `reason` prop, return the string "confirm status manually"
       //    * If the profile is **missing** an `active` prop, return the string "impossible to ascertain status"
       // 🌟 HINT: to confirm the existence of a prop, check that its value is not undefined
+      let active = true;
+      let inactive = false;
+
+      if (profile.active === active) {
+          profile.active = inactive;
+          profile.reason = reason;
+          return profile;
+        } else {
+          profile.active = active;
+          delete profile.reason
+          return profile
+        }
+        
+      // if (profile.active === active && profile.reason !== undefined) {
+      //     return "confirm status manually"
+      //   } else if (profile.active === inactive && profile.reason === undefined) {
+      //     return "confirm status manually"
+      //   } else {
+      //     return "impossible to ascertain status"
+      //   }
+
     }
 
     // 👉 CHALLENGE 2
-    function mineSweeper() {
+    function mineSweeper(grid, x, y) {
       // 🧠 mineSweeper takes a grid as its first argument, and coordinates x and y as the second and third args
       //  The grid is an array of arrays in the following format: [["🟥","🟦","🟥"],["🟦","🟥","🟥"],["🟥","🟦","🟦"]]
       //  Each subarray is a row of the grid, the first subarray being the top row:
@@ -106,6 +127,20 @@
       //    * If the player lands on blue, return the string "🟦 🥳"
       // 🧠 Edge cases:
       //    * If the x or y coordinates are under 1 or over 3, return the string "invalid coordinates"
+      for (let i = 0; i < grid.length; i++) {
+        const row = grid[i]
+        console.log(row);
+        for (let j = 0; j < row.length; j++) {
+          const element = row[j]
+          console.log(element);
+        }
+        
+      }
+      // if ( x < 1 || y > 3) {
+      //   return "invalid coordinates"
+      // }
+
+      
     }
 
     // 👉 CHALLENGE 3
